@@ -6,7 +6,8 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "test": "ng test",
+    "build:scully": "ng build && npx scully --project pokemon-card-depth  && npx scully serve"
   },
   "private": true,
   "dependencies": {
@@ -18,6 +19,11 @@
     "@angular/platform-browser": "^14.2.0",
     "@angular/platform-browser-dynamic": "^14.2.0",
     "@angular/router": "^14.2.0",
+    "@schematics/angular": "^14.2.7",
+    "@scullyio/init": "^2.1.41",
+    "@scullyio/ng-lib": "^2.1.41",
+    "@scullyio/scully": "^2.1.41",
+    "@scullyio/scully-plugin-puppeteer": "^2.1.41",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.11.4"

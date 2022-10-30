@@ -1,0 +1,11 @@
+identifier: lc9bu7wdedu8u593
+appPort: 1864
+staticPort: 1668
+reloadPort: 2667
+hostName: localhost
+projectName: pokemon-card-depth
+homeFolder: D:\New Folder\test\pokemon-card-depth
+distFolder: ./dist/pokemon-card-depth
+outDir: D:\New Folder\test\pokemon-card-depth\dist\static
+handle404: ''
+allowErrorCollect: false
