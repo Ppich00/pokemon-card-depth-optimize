@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pokemon-card-depth",
+            "outputPath": "dist/pokemon-card-depth/browser",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -94,6 +94,64 @@
             ],
             "scripts": []
           }
+        },
+        "server": {
+          "builder": "@angular-devkit/build-angular:server",
+          "options": {
+            "outputPath": "dist/pokemon-card-depth/server",
+            "main": "server.ts",
+            "tsConfig": "tsconfig.server.json"
+          },
+          "configurations": {
+            "production": {
+              "outputHashing": "media",
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
+                }
+              ]
+            },
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "extractLicenses": false
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve-ssr": {
+          "builder": "@nguniversal/builders:ssr-dev-server",
+          "configurations": {
+            "development": {
+              "browserTarget": "pokemon-card-depth:build:development",
+              "serverTarget": "pokemon-card-depth:server:development"
+            },
+            "production": {
+              "browserTarget": "pokemon-card-depth:build:production",
+              "serverTarget": "pokemon-card-depth:server:production"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "prerender": {
+          "builder": "@nguniversal/builders:prerender",
+          "options": {
+            "routes": [
+              "/"
+            ]
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "pokemon-card-depth:build:production",
+              "serverTarget": "pokemon-card-depth:server:production"
+            },
+            "development": {
+              "browserTarget": "pokemon-card-depth:build:development",
+              "serverTarget": "pokemon-card-depth:server:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }
